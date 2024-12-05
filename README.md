@@ -31,16 +31,18 @@ Make sure you have the following software installed:
    Clone the project to your local machine:
 
    https://github.com/bsugian22/trending-market.git
+
    cd trending-market
 
-2. Install Node.js:
+3. Install Node.js:
    npm install express
 
-3. run the server
+4. run the server
 
    node index.js
 
 ###### Note About the API on Alpha Vantage API
 
-- its only limited 25 fetching data its because its free.
+- its only free thats why its not moving i use the apikey = demo its because its giving me error 
+https://www.alphavantage.co/query?function=REALTIME_BULK_QUOTES&symbol=MSFT,AAPL,IBM&apikey=demo
 
