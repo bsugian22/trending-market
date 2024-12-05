@@ -73,7 +73,7 @@
             document.getElementById('loadingSpinner').style.display = 'block';
             document.getElementById('errorMessage').style.display = 'none';
 
-            fetch('https://www.alphavantage.co/query?function=REALTIME_BULK_QUOTES&symbol=MSFT,AAPL,IBM&apikey=your_api_key')
+            fetch('https://www.alphavantage.co/query?function=REALTIME_BULK_QUOTES&symbol=MSFT,AAPL,IBM&apikey=demo')
                 .then(response => response.json())
                 .then(data => {
                     console.log('API Response:', data); 
