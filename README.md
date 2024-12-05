@@ -35,12 +35,15 @@ Make sure you have the following software installed:
 
    https://github.com/bsugian22/trending-market.git
 
+   Find Terminal or Cmd and right click it and choose Run as by Administrator   
+   
    cd trending-market
 
-3. Install Node.js:
+2. Install:
+
    npm install express
 
-4. run the server
+3. run the server
 
    node index.js
 
