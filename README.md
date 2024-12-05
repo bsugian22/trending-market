@@ -17,10 +17,13 @@ Follow these steps to get the project up and running locally.
 Make sure you have the following software installed:
 
 -Visit the Node.js official website.
+
 -Download and install the LTS version for better stability.
+
 -Verify the installation by running the following commands in your terminal or command prompt:
 
  node -v
+ 
  npm -v
 
 
