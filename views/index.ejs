@@ -23,7 +23,7 @@
             </div>
 
             <div id="errorMessage" class="alert alert-danger" style="display:none;">
-                Error fetching data. Please try again later Please check the console because the daily fetching is 25 request Per Day.
+                Error fetching data. Please try again later.
             </div>
 
             <button id="refreshButton" class="btn btn-primary mb-4" onclick="fetchStockData()">Refresh Data</button>
@@ -68,6 +68,7 @@
 
     <script>
         let msftChartInstance, aaplChartInstance, ibmChartInstance;
+        let lastMsftData = null, lastAaplData = null, lastIbmData = null;
 
         function fetchStockData() {
             document.getElementById('loadingSpinner').style.display = 'block';
@@ -85,15 +86,24 @@
                     if (msftData && aaplData && ibmData) {
                         updateChart('msftChart', msftData, 'MSFT');
                         document.getElementById('msftStatus').innerText = `Close Price: $${msftData.close}`;
-                        showNewDataMessage('msftNewDataMessage');
+                        if (!isDataEqual(lastMsftData, msftData)) {
+                            showNewDataMessage('msftNewDataMessage');
+                            lastMsftData = msftData;
+                        }
 
                         updateChart('aaplChart', aaplData, 'AAPL');
                         document.getElementById('aaplStatus').innerText = `Close Price: $${aaplData.close}`;
-                        showNewDataMessage('aaplNewDataMessage');
+                        if (!isDataEqual(lastAaplData, aaplData)) {
+                            showNewDataMessage('aaplNewDataMessage');
+                            lastAaplData = aaplData;
+                        }
 
                         updateChart('ibmChart', ibmData, 'IBM');
                         document.getElementById('ibmStatus').innerText = `Close Price: $${ibmData.close}`;
-                        showNewDataMessage('ibmNewDataMessage');
+                        if (!isDataEqual(lastIbmData, ibmData)) {
+                            showNewDataMessage('ibmNewDataMessage');
+                            lastIbmData = ibmData;
+                        }
                     } else {
                         document.getElementById('errorMessage').style.display = 'block';
                     }
@@ -157,6 +167,11 @@
             setTimeout(() => {
                 messageElement.style.display = 'none';
             }, 3000);
+        }
+
+        function isDataEqual(lastData, newData) {
+            // Compare only the critical data points, like close price and volume
+            return lastData && lastData.close === newData.close && lastData.volume === newData.volume;
         }
 
         setInterval(fetchStockData, 60000);
