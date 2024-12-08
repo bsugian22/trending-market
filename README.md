@@ -47,6 +47,8 @@ Make sure you have the following software installed:
 
    node index.js
 
+then you will see the [localhost] in the terminalterminal/CMD Example: (http://localhost:3000/) please run it in your browser.
+
 ###### Note About the API on Alpha Vantage API
 
 - its only free thats why its not moving i use the apikey = demo its because its giving me error 
